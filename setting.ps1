@@ -32,6 +32,7 @@ Select-String "SeInteractiveLogonRight" securitypolicy.txt | foreach{$_.line} >>
 
 del ".\test.sdb"
 del ".\test.inf"
+del ".\securitypolicy.txt"
 echo "secedit setting end"
 
 echo "-------------------------------------------------------------------------------------"
@@ -184,4 +185,5 @@ else
 	echo "DontDisplayLastUserName failed"
 }
 
+del ./$env:computername.txt
 
