@@ -51,22 +51,19 @@ for($index = 0; $index -lt $check_list.Length; $index++){
 		$value_of_list += "not $index"
 	}
 	else{
-		$value_of_list += $temp.Replace(" ", "").split("=").Get(1)
+		#$value_of_list += $temp.Replace(" ", "").split("=").Get(1)
+		if ($check_value.Get($index) -eq ($temp.Replace(" ", "").split("=").Get(1)) ){
+			$check_list[$index]
+			echo "success"
+		}
+		else{
+			$check_list[$index] 
+			echo "failed"
+		}
 	}
-	$value_of_list += "/"
         
 }
-​
-for($index = 0; $index -lt $check_value.Length; $index++){
-	if ($check_value.Get($index) -eq ($value_of_list.split("/").Get($index))){
-		$check_list[$index] $check_value.Get($index)
-		echo "success"
-	}
-	else{
-		$check_list[$index] $check_value.Get($index)
-		echo "failed"
-	}
-}
+
 ​
 echo "-------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------"
